@@ -5,6 +5,12 @@ export const baseStyles = css`
 		@apply w-full px-4;
 	}
 
+	@screen md {
+		.container {
+			@apply mx-6;
+		}
+	}
+
 	@screen xl {
     .container {
 			@apply mx-auto;

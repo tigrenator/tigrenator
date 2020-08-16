@@ -1,11 +1,16 @@
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Coin, Area } from '../types/Calculator';
+import Nav from '../components/Nav';
+import { baseStyles } from '../components/Home/Home-styles';
+import Container from '../components/Container';
 
 function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { coins, areas, error } = props;
   return (
-    <div>
+    <div className="bg-brown-lighter">
+      <Nav />
+      <img src="/background.svg" className="background" />
       <Head>
         <title>Tigrenator Beta</title>
         <link rel="icon" href="/favicon.png" />
@@ -47,12 +52,15 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
         />
       </Head>
 
-      <main>
-        dsadsd
+      <main className="main-container"> 
+        <Container>
+          dsadsd
+        </Container>
       </main>
 
       <footer>
       </footer>
+      <style jsx>{baseStyles}</style>
     </div>
   )
 }
