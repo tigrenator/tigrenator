@@ -1,8 +1,15 @@
 import type { AppProps } from 'next/app'
-import '../styles.css'
+import Nav from '../components/Nav';
+import '../styles/main.css'
+import '../styles/tailwind.css'
 
 function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <div>
+      <Nav />
+      <Component {...pageProps} />
+    </div>
+  );
 }
 
 export default App

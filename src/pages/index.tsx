@@ -1,7 +1,6 @@
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 import { Coin, Area } from '../types/Calculator';
-import { Location } from '../types/User';
 
 function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { coins, areas, error } = props;
@@ -10,8 +9,6 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
       <Head>
         <title>Tigrenator Beta</title>
         <link rel="icon" href="/favicon.png" />
-
-        <html lang="es" />
         <meta name="application-name" content="Tigrenator Beta" />
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
