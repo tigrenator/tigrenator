@@ -68,12 +68,13 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
 
 export async function getStaticProps() {
   try {
-    const areasRequest = await fetch("https://api.tigrenator.com/api/area");
+    const areasRequest = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/area`);
     const areas: Area[] = await areasRequest.json();
 
-    const coinsRequest = await fetch("https://api.tigrenator.com/api/coin")
+    const coinsRequest = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/coin`);
     const coins: Coin[] = await coinsRequest.json()
 
+    console.log(coins)
     return {
       props: { areas, coins },
       revalidate: 21600,
