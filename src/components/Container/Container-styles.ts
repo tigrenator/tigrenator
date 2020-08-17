@@ -7,7 +7,7 @@ export const baseStyles = css`
 
 	@screen md {
 		.container {
-			@apply mx-6;
+			@apply px-6 mx-auto;
 		}
 	}
 

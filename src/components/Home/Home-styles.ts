@@ -1,6 +1,5 @@
 import css from 'styled-jsx/css';
 
-
 export const baseStyles = css`
 	.background {
 		@apply absolute;
@@ -10,7 +9,11 @@ export const baseStyles = css`
 	}
 
 	.main-container {
-		@apply pt-10;
-		height: calc(100vh - 64px);
+		@apply pt-10 relative flex-1;
+	}
+
+	.home-page {
+		@apply bg-brown-lighter flex flex-col h-full;
+    min-height: 100vh;
 	}
 `

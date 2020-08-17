@@ -4,11 +4,13 @@ import { Coin, Area } from '../types/Calculator';
 import Nav from '../components/Nav';
 import { baseStyles } from '../components/Home/Home-styles';
 import Container from '../components/Container';
+import EnhancersBox from '../components/EnhancersBox';
+import Footer from '../components/Footer';
 
 function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { coins, areas, error } = props;
   return (
-    <div className="bg-brown-lighter">
+    <div className="home-page">
       <Nav />
       <img src="/background.svg" className="background" />
       <Head>
@@ -54,12 +56,10 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
 
       <main className="main-container"> 
         <Container>
-          dsadsd
+          <EnhancersBox />
         </Container>
       </main>
-
-      <footer>
-      </footer>
+      <Footer />
       <style jsx>{baseStyles}</style>
     </div>
   )
