@@ -56,7 +56,7 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
 
       <main className="main-container"> 
         <Container>
-          <EnhancersBox />
+          <EnhancersBox coins={coins} />
         </Container>
       </main>
       <Footer />
@@ -74,7 +74,6 @@ export async function getStaticProps() {
     const coinsRequest = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/coin`);
     const coins: Coin[] = await coinsRequest.json()
 
-    console.log(coins)
     return {
       props: { areas, coins },
       revalidate: 21600,
