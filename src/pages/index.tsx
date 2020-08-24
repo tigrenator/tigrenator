@@ -4,6 +4,7 @@ import { Coin, Area } from '../types/Calculator';
 import Nav from '../components/Nav';
 import { baseStyles } from '../components/Home/Home-styles';
 import Container from '../components/Container';
+import SearchBar from '../components/SearchBar';
 import EnhancersBox from '../components/EnhancersBox';
 import Footer from '../components/Footer';
 
@@ -57,6 +58,7 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
       <main className="main-container"> 
         <Container>
           <EnhancersBox coins={coins} />
+          <SearchBar />
         </Container>
       </main>
       <Footer />
