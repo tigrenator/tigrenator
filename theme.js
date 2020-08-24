@@ -5,7 +5,8 @@ const colors = {
   },
   orange: {
     default: "#F3844A",
-    lighter: "#FDBF88"
+    lighter: "#FDBF88",
+    lightest: "#FFF3E6"
   }
 };
 

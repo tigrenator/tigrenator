@@ -19,14 +19,14 @@ function PowerUpBlock(props: PowerUpBlockProps) {
               <motion.button
                 className={cx('power-up-button', activeClass, components.className)}
                 whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileTap={{ scale: 0.95 }}
                 key={`powerUp-${name}`}
               >
                 <img src={icon} alt={`${name} icon`} className="h-10 mb-2" />
                 <h2>{powerUp.name}</h2>
                 <style jsx>{`
                   img {
-                    filter: ${isActive ? 'invert(1)' : 'contrast(0.5)'};
+                    filter: ${isActive ? 'invert(1)' : 'contrast(0.3)'};
                   }
                 `}</style>
               </motion.button>
