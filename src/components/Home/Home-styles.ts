@@ -6,6 +6,9 @@ export const baseStyles = css`
 		top: -70px;
 		width: 70%;
 		right: 0;
+		height: 100vh;
+    object-fit: contain;
+    object-position: top right;
 	}
 
 	.main-container {

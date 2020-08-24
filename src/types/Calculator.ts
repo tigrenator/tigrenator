@@ -25,3 +25,15 @@ export type Area = {
 	__v: number
 	specialities: Speciality[]
 }
+
+export type PowerUpProps = {
+  name: string;
+  icon: string;
+}
+
+export type PowerUpBlockProps = {
+  title: string;
+  powers: PowerUpProps[];
+  active: string;
+  onClick: () => void;
+}

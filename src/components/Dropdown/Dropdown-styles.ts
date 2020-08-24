@@ -3,7 +3,7 @@ import css from 'styled-jsx/css';
 export const baseStyles = css`
 	.dropdown-btn {
 		border-bottom: 1px solid;
-		text-decoration: none;	
+		text-decoration: none;
 		@apply w-full cursor-pointer flex justify-between items-center text-gray-700 pb-1 border-gray-400;
 	}
 
@@ -21,9 +21,10 @@ export const baseStyles = css`
 	}
 
 	.dropdown-content {
-		@apply absolute w-full overflow-y-auto bg-white overflow-hidden;
+		@apply absolute w-full overflow-y-auto bg-white overflow-x-hidden;
 		transition: all 0.25s;
 		max-height: 200px;
+		z-index: 3;
 		transform-origin: top center;
 		transform: scale(1,0);
 		display: block;

@@ -1,13 +1,16 @@
 import React, { useMemo, useState } from 'react';
 import cx from 'classnames';
+import { motion } from "framer-motion";
 import { baseStyles, components } from './EnhancersBox-styles';
 import Dropdown from '../Dropdown';
 import { Coin } from '../../types/Calculator';
 import PowerUpBlock from '../PowerUpBlock';
+import { powerUps, powerUpAnimation, containerAnimation } from './utils';
 
 type EnhancersBoxProps = {
 	coins:  Coin[]
 }
+
 function EnhancersBox(props: EnhancersBoxProps) {
 	const { coins } = props;
 	const [selectedCoin, setSelectedCoin] = useState<number>();
@@ -29,44 +32,23 @@ function EnhancersBox(props: EnhancersBoxProps) {
 					<span>TIPO DE COBRO</span>
 				</div>
 			</div>
-			<div className="flex mt-3">
-				<PowerUpBlock
-					title="Cliente"
-					powers={[{
-						icon: '/particular-icon.svg',
-						name: 'PARTICULAR'
-					}, {
-						icon: '/company-icon.svg',
-						name: 'EMPRESA'
-					}]}
-					active="PARTICULAR"
-					onClick={() => {}}
-				/>
-				<PowerUpBlock
-					title="Tiempo"
-					powers={[{
-						icon: '/particular-icon.svg',
-						name: 'PARTICULAR'
-					}, {
-						icon: '/company-icon.svg',
-						name: 'EMPRESA'
-					}]}
-					active="PARTICULAR"
-					onClick={() => {}}
-				/>
-				<PowerUpBlock
-					title="Freelancer"
-					powers={[{
-						icon: '/particular-icon.svg',
-						name: 'PARTICULAR'
-					}, {
-						icon: '/company-icon.svg',
-						name: 'EMPRESA'
-					}]}
-					active="PARTICULAR"
-					onClick={() => {}}
-				/>
-			</div>
+			<motion.ul
+				className="flex mt-3"
+				variants={containerAnimation}
+				initial="hidden"
+				animate="visible"
+			>
+				{powerUps.map((powerUp, index) => (
+					<motion.li key={`powerup-${index}`} variants={powerUpAnimation}>
+						<PowerUpBlock
+							title={powerUp.title}
+							powers={powerUp.options}
+							active="PARTICULAR"
+							onClick={() => {}}
+						/>
+					</motion.li>
+				))}
+			</motion.ul>
 			<style jsx>{baseStyles}</style>
 			{components.styles}
 		</div>

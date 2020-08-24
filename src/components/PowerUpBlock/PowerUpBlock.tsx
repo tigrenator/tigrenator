@@ -1,41 +1,39 @@
-import React, { useMemo, useState } from 'react';
+import React from 'react';
 import cx from 'classnames';
-import { baseStyles } from './PowerUp-styles';
-
-type PowerUpProps = {
-  name: string;
-  icon: string;
-}
-
-type PowerUpBlockProps = {
-  title: string;
-  powers: PowerUpProps[];
-  active: string;
-  onClick: () => void;
-}
+import { motion } from "framer-motion"
+import { components } from './PowerUp-styles';
+import { PowerUpBlockProps, PowerUpProps } from '../../types/Calculator';
 
 function PowerUpBlock(props: PowerUpBlockProps) {
   const { title, powers, active } = props;
 
   return (
-    <div className="power-up flex flex-col w-11/12 md:w-auto">
+    <div className="mr-6 flex flex-col w-11/12 md:w-auto">
       <h2 className="block mb-2 uppercase">{title}</h2>
       <div className="flex">
         {powers.map((powerUp : PowerUpProps) => {
           const { name, icon } = powerUp;
-          const activeClass = (active === name) ? 'active' : ''
+          const isActive = active === name;
+          const activeClass = isActive ? 'active' : ''
           return (
-            <button
-              className={cx('power-up-button', activeClass)}
-              key={`powerUp-${name}`}
-            >
-              <img src={icon} alt={`${name} icon`} />
-              <span>{powerUp.name}</span>
-            </button>
+              <motion.button
+                className={cx('power-up-button', activeClass, components.className)}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                key={`powerUp-${name}`}
+              >
+                <img src={icon} alt={`${name} icon`} className="h-10 mb-2" />
+                <h2>{powerUp.name}</h2>
+                <style jsx>{`
+                  img {
+                    filter: ${isActive ? 'invert(1)' : 'contrast(0.5)'};
+                  }
+                `}</style>
+              </motion.button>
           )
         })}
       </div>
-      <style jsx>{baseStyles}</style>
+      {components.styles}
     </div>
   )
 }
