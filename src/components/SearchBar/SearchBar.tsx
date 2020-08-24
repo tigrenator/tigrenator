@@ -6,7 +6,7 @@ function SearchBar() {
 
 	return (
 		<div className="search-bar">
-			<div className="flex flex-row items-center"> 
+			<div className="flex flex-row items-center flex-1"> 
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					className="mr-8"

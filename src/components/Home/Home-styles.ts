@@ -4,9 +4,9 @@ export const baseStyles = css`
 	.background {
 		@apply absolute;
 		top: -70px;
-		width: 70%;
+		width: 80%;
 		right: 0;
-		height: 100vh;
+		height: 90vh;
     object-fit: contain;
     object-position: top right;
 	}

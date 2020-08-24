@@ -56,7 +56,7 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
       </Head>
 
       <main className="main-container"> 
-        <Container>
+        <Container className="flex flex-col">
           <EnhancersBox coins={coins} />
           <SearchBar />
         </Container>
