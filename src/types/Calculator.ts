@@ -37,3 +37,17 @@ export type PowerUpBlockProps = {
   active: string;
   onClick: () => void;
 }
+
+export type AreasSectionProps = {
+	areas: Area[];
+}
+
+export type AreasListProps = {
+	areas: Array<string>;
+	active?: string;
+	onSelect: (area: string) => void;
+};
+
+export type IconProps = {
+	name: string;
+}

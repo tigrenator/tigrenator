@@ -7,9 +7,10 @@ import Container from '../components/Container';
 import SearchBar from '../components/SearchBar';
 import EnhancersBox from '../components/EnhancersBox';
 import Footer from '../components/Footer';
-
+import AreasSection from '../components/AreasSection';
 function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
   const { coins, areas, error } = props;
+
   return (
     <div className="home-page">
       <Nav />
@@ -55,10 +56,11 @@ function Home(props: InferGetStaticPropsType<typeof getStaticProps>) {
         />
       </Head>
 
-      <main className="main-container"> 
+      <main className="main-container">
         <Container className="flex flex-col">
           <EnhancersBox coins={coins} />
           <SearchBar />
+          <AreasSection areas={areas} />
         </Container>
       </main>
       <Footer />
@@ -84,7 +86,7 @@ export async function getStaticProps() {
     console.log(error)
     // Render error page.
     return {
-      props: { areas: [], coins: [], error, },
+      props: { areas: [] as Area[], coins: [] as Coin[], error, },
       revalidate: 60,
     }
   }
