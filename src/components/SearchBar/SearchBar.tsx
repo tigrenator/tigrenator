@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { baseStyles } from './SearchBar-styles';
+import cx from 'classnames';
+import { motion } from 'framer-motion';
+import { baseStyles, components } from './SearchBar-styles';
 
 function SearchBar() {
 	const [inputText, setInputText] = useState<string>("");
 
 	return (
-		<div className="search-bar">
+		<motion.div
+			className={cx("search-bar", components.className)}
+			initial="hidden"
+			animate="visible"
+			variants={{  hidden: { opacity: 0 }, visible: {  opacity: 1, transition: { delay: 1, duration: 1 } } }}
+		>
 			<div className="flex flex-row items-center flex-1"> 
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +34,8 @@ function SearchBar() {
 
 			<button className="sb-btn">Buscar</button>
 			<style jsx>{baseStyles}</style>
-		</div>
+			{components.styles}
+		</motion.div>
 	)
 }
 
